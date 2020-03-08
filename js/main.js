@@ -13,16 +13,35 @@ document.addEventListener('DOMContentLoaded', (event) => {
   fetchCuisines();
 });
  
-initMap = () =>{
-  mapboxgl.accessToken = 'pk.eyJ1IjoiYW1uYWgxOTkxIiwiYSI6ImNrN2E2bnF5bTAwMHEzZHNid296Y3NxdDQifQ.WTP_xHzNp71kwdlnGUr_pA';
-  var map = new mapboxgl.Map({
-  container: 'map',
-  style: 'mapbox://styles/mapbox/streets-v11'
-  });
+
+/**
+ * Initialize leaflet map, called from HTML.
+ */
+initMap = () => {
+  self.newMap = L.map('map', {
+        center: [40.722216, -73.987501],
+        zoom: 12,
+        scrollWheelZoom: false
+      });
+  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token={mapboxToken}', {
+    mapboxToken: 'pk.eyJ1IjoiYW1uYWgxOTkxIiwiYSI6ImNrN2E2bnF5bTAwMHEzZHNid296Y3NxdDQifQ.WTP_xHzNp71kwdlnGUr_pA',
+    maxZoom: 18,
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+      '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+      'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    id: 'mapbox.streets'
+  }).addTo(newMap);
+
+  updateRestaurants();
 }
 
-
-
+// initMap = () =>{
+//   mapboxgl.accessToken = 'pk.eyJ1IjoiYW1uYWgxOTkxIiwiYSI6ImNrN2E2bnF5bTAwMHEzZHNid296Y3NxdDQifQ.WTP_xHzNp71kwdlnGUr_pA';
+//   var map = new mapboxgl.Map({
+//   container: 'map',
+//   style: 'mapbox://styles/mapbox/streets-v11'
+//   });
+// }
 
 /**
  * Fetch all neighborhoods and set their HTML.
@@ -79,38 +98,19 @@ fillCuisinesHTML = (cuisines = self.cuisines) => {
   });
 }
 
-/**
- * Initialize leaflet map, called from HTML.
- */
-initMap = () => {
-  self.newMap = L.map('map', {
-        center: [40.722216, -73.987501],
-        zoom: 12,
-        scrollWheelZoom: false
-      });
-  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token={mapboxToken}', {
-    mapboxToken: 'pk.eyJ1IjoiYW1uYWgxOTkxIiwiYSI6ImNrN2E2bnF5bTAwMHEzZHNid296Y3NxdDQifQ.WTP_xHzNp71kwdlnGUr_pA',
-    maxZoom: 18,
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-      '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-      'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    id: 'mapbox.streets'
-  }).addTo(newMap);
 
-  updateRestaurants();
-}
-/* window.initMap = () => {
-  let loc = {
-    lat: 40.722216,
-    lng: -73.987501
-  };
-  self.map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 12,
-    center: loc,
-    scrollwheel: false
-  });
-  updateRestaurants();
-} */
+//  window.initMap = () => {
+//   let loc = {
+//     lat: 40.722216,
+//     lng: -73.987501
+//   };
+//   self.map = new google.maps.Map(document.getElementById('map'), {
+//     zoom: 12,
+//     center: loc,
+//     scrollwheel: false
+//   });
+//   updateRestaurants();
+// }
 
 /**
  * Update page and map for current restaurants.

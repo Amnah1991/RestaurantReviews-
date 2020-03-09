@@ -40,7 +40,8 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
   min-height: 100%;
 }
 #footer {
-  background-color: #444;
+  /* background-color: #444; */
+  background-image: linear-gradient(10deg, rgb(100, 99, 99) 100% , rgb(44, 44, 44) 0%);  
   color: #aaa;
   font-size: 8pt;
   letter-spacing: 1px;
@@ -213,7 +214,8 @@ nav h1 a {
   padding-right: 25px
 }
 #restaurants-list li a {
-  background: linear-gradient(90deg, #da3d53 0%, #da3d53 100%);  color: #fff;
+  background: linear-gradient(90deg, #fa7687 0%, #da3d53 100%);  
+  color: #fff;
   display: inline-block;
   font-size: 10pt;
   margin: 25px;
@@ -224,7 +226,10 @@ nav h1 a {
   border-radius: 5px;
   position: absolute;
   bottom: 5px;
+}
 
+#restaurants-list li a:hover{
+  background: linear-gradient(180deg, #da3d53 100% , #fa7687 0%);  
 }
 
 /* ====================== Restaurant Details ====================== */
@@ -328,6 +333,11 @@ nav h1 a {
 }
 #restaurant-hours td {
   color: #666;
+}
+
+#reviews-list li p:nth-child(3) {
+  color: #da3d53;
+  text-align: right;
 }
 
 

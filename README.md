@@ -1,5 +1,4 @@
 # Restaurant Reviews project
----
 
 ## Description
 

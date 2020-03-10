@@ -9,7 +9,8 @@ body,td,th,p{
 }
 body {
 	background-color: #fdfdfd;
-	margin: 0;
+  margin: 0;
+  padding: 0;
 	position:relative;
 }
 ul, li {
@@ -345,7 +346,7 @@ nav h1 a {
 /* ====================== Media Query ====================== */
 
 
-@media only screen and (max-width: 1012px) {
+@media only screen and (min-width: 992px) {
   #restaurants-list li {
     width: 290px;
   }
@@ -355,9 +356,9 @@ nav h1 a {
   }
 }
 
-@media only screen and (max-width: 980px) {
+@media only screen and (max-width: 768px) {
   nav h1 a {
-    font-size: 16px;
+    font-size: 12px;
   }
 
   #restaurants-list li {
@@ -378,6 +379,9 @@ nav h1 a {
     top: 0;
     width: 100%;
     z-index: 1000;
+  }
+  nav h1 a{
+    font-size: 10px;
   }
   .inside #map-container {
     position: relative;
@@ -459,3 +463,4 @@ nav h1 a {
     width: 100%;
   }
 }
+

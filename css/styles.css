@@ -345,7 +345,7 @@ nav h1 a {
 /* ====================== Media Query ====================== */
 
 
-@media only screen and (max-width: 1019px) {
+@media only screen and (max-width: 1012px) {
   #restaurants-list li {
     width: 290px;
   }

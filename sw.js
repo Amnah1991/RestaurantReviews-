@@ -1,7 +1,7 @@
 let staticCacheName = 'rest-static-v1';
 self.addEventListener('install', function (event) {
     event.waitUntil(
-        Chaches.open(staticCacheName).then(function (cache) {
+        caches.open(staticCacheName).then(function (cache) {
             return cache.addAll([
                 './',
                 './index.html',
@@ -11,7 +11,6 @@ self.addEventListener('install', function (event) {
                 './js/dbhelper.js',
                 './js/main.js',
                 './js/restaurant_info.js',
-                './js/sw_register.js',
                 './img/1.jpg',
                 './img/2.jpg',
                 './img/3.jpg',
@@ -35,7 +34,7 @@ self.addEventListener('activate', function (event) {
             .then(function (cacheNames) {
                 return Promise.all(
                     cacheNames.filter(function (cacheName) {
-                        return cacheName.startWith('rest-') &&
+                        return cacheName.startsWith('rest-') &&
                             cacheName != staticCacheName;
                     }).map(function (cacheName) {
                         return caches.delete('cacheName')

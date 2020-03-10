@@ -180,11 +180,14 @@ nav h1 a {
   font-family: 'Spartan',sans-serif;
   margin: 15px;
   min-height: 380px;
-  /* padding: 30px 25px; */
+  padding: 30px 25px;
   text-align: left;
   width: 300px;
   height: 460px;
   position: relative;
+
+  display: flex;
+  flex-direction: column;
 }
 
 
@@ -198,35 +201,34 @@ nav h1 a {
   min-height: 248px;
   min-width: 100%;
 }
-#restaurants-list li h1 {
+#restaurants-list li h2 {
   color: #242731;
   font-family: Arial,sans-serif;
   font-size: 14pt;
   font-weight: 200;
   letter-spacing: 0;
   line-height: 1.3;
-  margin: 20px 0 10px 25px;
+  margin: 20px 0 10px 0px;
   text-transform: uppercase;
 }
 #restaurants-list p {
   margin: 0;
   font-size: 11pt;
-  padding-left: 25px;
-  padding-right: 25px
 }
 #restaurants-list li a {
   background: linear-gradient(90deg, #fa7687 0%, #da3d53 100%);  
   color: #fff;
   display: inline-block;
   font-size: 10pt;
-  margin: 25px;
-  padding: 8px 72px 10px;
+  /* margin: 25px; */
+  padding: 3% 25%;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
   border-radius: 5px;
   position: absolute;
-  bottom: 5px;
+  bottom: 25px;
+  align-self: center;
 }
 
 #restaurants-list li a:hover{
@@ -242,7 +244,7 @@ nav h1 a {
 }
 
 .inside #map-container {
-  background: #fff none repeat scroll 0 0;
+  background: #fff none repeat scroll 0 0 !important;
   height: 87%;
   position: fixed;
   right: 0;
@@ -350,10 +352,6 @@ nav h1 a {
   #restaurants-list li {
     width: 290px;
   }
-  #restaurants-list li a {
-  margin: 15px;
-  padding: 8px 75px 10px;
-  }
 }
 
 @media only screen and (max-width: 768px) {
@@ -363,11 +361,6 @@ nav h1 a {
 
   #restaurants-list li {
     width: 280px;
-  }
-
-  #restaurants-list li a {
-    margin: 10px;
-    padding: 8px 72px 10px;
   }
 }
 
@@ -399,7 +392,7 @@ nav h1 a {
   
   #restaurant-container{
     padding-top: 130px;
-    width: 100%;
+    width: 95%;
     text-align: center;
   }
 
@@ -407,9 +400,7 @@ nav h1 a {
     width: 400px;
     height: 500px;
   }
-  #restaurants-list li a {
-    padding: 10px 135px;
-  }
+
   #restaurants-list p {
     width: 100%;
   }  
@@ -449,18 +440,39 @@ nav h1 a {
 
   #reviews-container {
     width: 100%;
-    padding: 20px 10px;
+    padding: 20px 0px;
     text-align: center;
   }
 
   #reviews-list li {
     text-align: left;
-    width: 90%;
+    width: 85%;
   }
   .inside #footer {
     bottom: 0;
     position: absolute;
     width: 100%;
+  }
+}
+
+@media (max-width: 499px){
+  #restaurants-list li {
+    height: 460px;
+}
+.filter-options{
+  display: flex;
+  flex-direction: column;
+  margin-top: 0;
+  margin-bottom: 50px;
+}
+.filter-options h2 {
+align-self: flex-start;
+}
+.filter-options select {
+  align-self: flex-end;
+  border-radius: 5px;
+  padding: 8px 10px;
+  margin-right: 30px;
   }
 }
 
